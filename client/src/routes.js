@@ -1,8 +1,8 @@
 import HomePage from "./components/HomePage";
-import OwnerPage from "./components/Owners";
+import OwnerPage from "./components/owners/Owners";
 
-import Vehicle from "./components/Vehicle";
-import VehicleDetails from "./components/VehicleDetails";
+import Vehicle from "./components/vehicles/Vehicle";
+import VehicleDetails from "./components/vehicles/VehicleDetails";
 const routes = [
 {
    path: "/",

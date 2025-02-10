@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import OwnerCard from "./OwnerCard";
-import NavBar from "./NavBar";
+import NavBar from "../NavBar";
 
 function OwnerPage(){
   const [owners, setOwners] = useState([])

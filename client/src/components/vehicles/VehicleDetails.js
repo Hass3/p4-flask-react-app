@@ -9,6 +9,9 @@ function VehicleDetails(){
     const params = useParams()
     const vehicleId = params.id
     const{make,model,img_url,year,price} = car
+
+
+
     useEffect(()=>{
         fetch(`/vehicles/${vehicleId}`)
         .then(r=>r.json())
