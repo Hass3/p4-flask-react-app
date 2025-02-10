@@ -1,0 +1,14 @@
+
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    background-color: red;
+    color: black;
+}
+
+.logo{
+    color: black;
+    font-size: large;
+    font-style: italic;
+}

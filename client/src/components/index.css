@@ -1,0 +1,33 @@
+
+
+.v-h1{
+    justify-self: center;
+}
+
+.card-container{
+    display: flexbox;
+    flex-wrap: wrap;
+    gap:20px;
+
+}
+
+
+.car-card{
+    border: 3px solid;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 250px;
+}
+
+.car-card:hover{
+    color: firebrick;
+}
+
+
+.v-img{
+    height: 150px;
+    width: 250px;
+    object-fit: cover;
+}
+
