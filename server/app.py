@@ -25,7 +25,20 @@ class Owners(Resource):
 
 
     def post(self):
-        pass
+        try:
+            new_owner = Owner(name = request.get_json()["name"], date_of_birth = request.get_json()["date_of_birth"], address = request.get_json()["address"])
+            db.session.add(new_owner)
+            db.session.commit()
+            new_owner_json = {
+                'id' : new_owner.id,
+                'name' : new_owner.name,
+                'date_of_birth' : new_owner.date_of_birth,
+                'address': new_owner.address
+            }
+            return new_owner_json, 201
+        except:
+            return {}, 400
+
 
 
 class OwnerById(Resource):
@@ -34,22 +47,22 @@ class OwnerById(Resource):
         return owner.to_dict(), 200
     
     
-    # def patch(self, id):
-    #     try: 
-    #         owner = Owner.query.filter(id=id).first()
-    #         for attr in request.get_json():
-    #             setattr(owner, attr, request.get_json()[attr] )
-    #         db.session.add(owner)
-    #         db.session.commit()
-    #         return owner.to_dict(), 202
-    #     except:
-    #         return{}, 400
+    def patch(self, id):
+        try: 
+            owner = Owner.query.filter(id=id).first()
+            for attr in request.get_json():
+                setattr(owner, attr, request.get_json()[attr] )
+            db.session.add(owner)
+            db.session.commit()
+            return owner.to_dict(), 202
+        except:
+            return{}, 400
     
-    # def delete(self, id):
-    #     owner = Owner.query.filter(id=id).first()
-    #     db.session.delete(owner)
-    #     db.session.commit()
-    #     return {}, 204
+    def delete(self, id):
+        owner = Owner.query.filter(id=id).first()
+        db.session.delete(owner)
+        db.session.commit()
+        return {}, 204
 
 class Vehicles(Resource):
     
@@ -58,7 +71,22 @@ class Vehicles(Resource):
         return  cars, 200
     
     def post(self):
-        pass 
+        try:
+            new_vehicle = Vehicle(make = request.get_json()['make'], model = request.get_json()['model'], year = request.get_json()['year'], price = request.get_json()['price'], img_url = request.get_json()['img_url'])
+            db.session.add(new_vehicle)
+            db.session.commit()
+            new_vehicle_json = {
+                'id': new_vehicle.id,
+                'make': new_vehicle.make,
+                'model': new_vehicle.model,
+                'year': new_vehicle.year,
+                'price': new_vehicle.price,
+                'img_url':  new_vehicle.img_url
+            }
+            return new_vehicle_json, 201
+        except:
+            return {} , 400
+
 
 class VehicleById(Resource):
     def get(self,id):
@@ -73,7 +101,6 @@ class Titles(Resource):
     
     def post(self):
         pass
-
 
 api.add_resource(Titles, '/titles')
 api.add_resource(Vehicles, '/vehicles')
