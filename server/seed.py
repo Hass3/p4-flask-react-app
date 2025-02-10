@@ -6,6 +6,8 @@ from models import Vehicle,Owner,Title
 from datetime import datetime
 from config import *
 
+
+
 with app.app_context():
 
     db.drop_all()
@@ -40,6 +42,9 @@ with app.app_context():
         Title(owner=owners[4], vehicle=vehicles[2], transfer_date=datetime(2022, 11, 3), notes="Lease buyout")
     ]
 
+
+
+    
     db.session.add_all(owners + vehicles + titles)
     db.session.commit()
     print ("Succesfully seeded")

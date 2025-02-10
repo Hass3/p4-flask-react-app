@@ -24,6 +24,7 @@ function VehicleForm(){
          price: "",
          img_url: ""
       },
+
       validationSchema: formSchema,
       onSubmit:(values) =>{
          fetch('/vehicles', {
@@ -44,7 +45,7 @@ function VehicleForm(){
     <input  onChange  ={formik.handleChange}  value={formik.values.year} placeholder="enter year" />
     <input  onChange  ={formik.handleChange}  value={formik.values.price}  placeholder="enter price"/>
     <input  onChange  ={formik.handleChange}  value={formik.values.img_url} placeholder="enter img address" />
-    <button>Submit</button>
+    <button>Register</button>
     </form>
 
 
