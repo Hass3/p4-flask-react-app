@@ -2,10 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import OwnerCard from "./OwnerCard";
 import NavBar from "../NavBar";
-
+import OwnerForm from "./OwnerForm";
 function OwnerPage(){
   const [owners, setOwners] = useState([])
-
+  const [isFormOn, setIsFormOn] = useState(false)
 
 
    useEffect(()=>{
@@ -18,6 +18,9 @@ function OwnerPage(){
     return(
         <>
         <NavBar />
+        <button onClick={()=>setIsFormOn((on)=>!on)}>{!isFormOn? "register owner": "back"}</button>
+        {!isFormOn ?
+        <>
         <h1>Click on any vehicle owner</h1>
         {owners.map((o)=>
          <OwnerCard 
@@ -27,6 +30,8 @@ function OwnerPage(){
          dob={o.date_of_birth}
          />
         )}
+        </>
+         : <OwnerForm/> }
         </>
 
 
