@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import NavBar from "../NavBar";
 
 
 
@@ -23,8 +23,9 @@ function VehicleDetails(){
     }, [vehicleId])
    
     return(
-
+   
     <>
+    <NavBar/>
     <h1>{model}</h1>
     
     

@@ -18,7 +18,7 @@ function OwnerPage(){
     return(
         <>
         <NavBar />
-        <h1>Helloooo owners</h1>
+        <h1>Click on any vehicle owner</h1>
         {owners.map((o)=>
          <OwnerCard 
          key={o.id}
