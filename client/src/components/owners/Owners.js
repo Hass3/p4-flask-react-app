@@ -22,6 +22,7 @@ function OwnerPage(){
         {owners.map((o)=>
          <OwnerCard 
          key={o.id}
+         id = {o.id}
          name ={o.name}
          dob={o.date_of_birth}
          />

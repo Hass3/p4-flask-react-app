@@ -28,28 +28,28 @@ class Owners(Resource):
         pass
 
 
-# class OwnerById(Resource):
-#     def get(self,id):
-#         owner =  Owner.query.filter_by(id=id).first()
-#         return owner.to_dict(), 200
+class OwnerById(Resource):
+    def get(self,id):
+        owner =  Owner.query.filter_by(id=id).first()
+        return owner.to_dict(), 200
     
     
-#     def patch(self, id):
-#         try: 
-#             owner = Owner.query.filter(id=id).first()
-#             for attr in request.get_json():
-#                 setattr(owner, attr, request.get_json()[attr] )
-#             db.session.add(owner)
-#             db.session.commit()
-#             return owner.to_dict(), 202
-#         except:
-#             return{}, 400
+    # def patch(self, id):
+    #     try: 
+    #         owner = Owner.query.filter(id=id).first()
+    #         for attr in request.get_json():
+    #             setattr(owner, attr, request.get_json()[attr] )
+    #         db.session.add(owner)
+    #         db.session.commit()
+    #         return owner.to_dict(), 202
+    #     except:
+    #         return{}, 400
     
-#     def delete(self, id):
-#         owner = Owner.query.filter(id=id).first()
-#         db.session.delete(owner)
-#         db.session.commit()
-#         return {}, 204
+    # def delete(self, id):
+    #     owner = Owner.query.filter(id=id).first()
+    #     db.session.delete(owner)
+    #     db.session.commit()
+    #     return {}, 204
 
 class Vehicles(Resource):
     
@@ -61,13 +61,9 @@ class Vehicles(Resource):
         pass 
 
 class VehicleById(Resource):
-
     def get(self,id):
         car = Vehicle.query.filter_by(id = id).first()
         return car.to_dict(), 200
-
-
-
 
 
 class Titles(Resource):
@@ -83,6 +79,7 @@ api.add_resource(Titles, '/titles')
 api.add_resource(Vehicles, '/vehicles')
 api.add_resource(Owners, '/owners')
 api.add_resource(VehicleById, '/vehicles/<int:id>')
+api.add_resource(OwnerById, '/owners/<int:id>')
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
 

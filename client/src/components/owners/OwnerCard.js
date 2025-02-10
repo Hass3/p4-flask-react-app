@@ -3,13 +3,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-function OwnerCard({name, dob}){
+function OwnerCard({id, name, dob}){
 
 
     return(
     
         <>
-        <Link>
+        <Link to = {`/owners/${id}`}>
         <h1>{name}</h1>
         </Link>
         </>
