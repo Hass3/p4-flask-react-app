@@ -108,7 +108,18 @@ class VehicleById(Resource):
             'owners': [o.to_dict() for o in car.owners]
         }
         return car_json, 200
-
+       
+    def patch(self, id):
+        try: 
+            vehicle = Vehicle.query.filter(id=id).first()
+            for attr in request.get_json():
+                setattr(vehicle, attr, request.get_json()[attr] )
+            db.session.add(vehicle)
+            db.session.commit()
+            return vehicle.to_dict(), 202
+        except:
+            return{}, 400
+    
 
 class Titles(Resource):
     def get(self):
