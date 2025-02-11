@@ -17,7 +17,7 @@ function OwnerPage(){
    function addOwner(newOwner){
        setOwners([...owners,newOwner])
    }
-   if (!owners){return <h2>Loading...</h2>}
+   if (!owners){return <h2 style={{fontSize:'100px'}}>Loading...</h2>}
     return(
         <>
         <NavBar />
