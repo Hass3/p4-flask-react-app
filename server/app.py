@@ -66,7 +66,7 @@ class OwnerById(Resource):
             return{}, 400
     
     def delete(self, id):
-        owner = Owner.query.filter(id=id).first()
+        owner = Owner.query.filter_by(id=id).first()
         db.session.delete(owner)
         db.session.commit()
         return {}, 204
@@ -120,6 +120,11 @@ class VehicleById(Resource):
         except:
             return{}, 400
     
+    def delete(self,id):
+        vehicle = Vehicle.query.filter_by(id=id).first()
+        db.session.delete(vehicle)
+        db.session.commit()
+        return {}, 204
 
 class Titles(Resource):
     def get(self):

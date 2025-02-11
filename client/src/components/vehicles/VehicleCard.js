@@ -2,13 +2,23 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import EditVehicleForm from "./EditVehicleForm";
-function VehicleCard( {car,handelEditCar} ){
+function VehicleCard( {car,handelEditCar,onDeleteCar} ){
    const[isEditOn, setIsEditOn]= useState(false)
     const {id,make,year,model,img_url,price} = car
     
+    function handelDeleteClick(){
+        fetch(`/vehicles/${id}`, {
+            method: "DELETE"
+        })
+        .then(r=>r)
+        .then((car)=>onDeleteCar(car))
+    }
+
+
+
     return(
     <>
-    <button>Delete</button>
+    <button onClick={handelDeleteClick}>Delete</button>
     <button key="edit btn" onClick={()=>setIsEditOn((on)=>!on)}>{!isEditOn?'Edit': 'Back'}</button>
     {!isEditOn ?
     <div className="car-card">
@@ -19,7 +29,7 @@ function VehicleCard( {car,handelEditCar} ){
     
     </div>
     
-    : <EditVehicleForm car={car} onEditCar={handelEditCar}/>
+    : <EditVehicleForm setIsEditOn={setIsEditOn} car={car} onEditCar={handelEditCar}/>
     }
 
 

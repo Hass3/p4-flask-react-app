@@ -2,7 +2,7 @@ import {useFormik} from "formik"
 import * as yup from 'yup'
 
 
-function EditVehicleForm({car, onEditCar}){
+function EditVehicleForm({car, onEditCar, setIsEditOn}){
   
 
       const formSchema =  yup.object().shape({
@@ -29,6 +29,7 @@ function EditVehicleForm({car, onEditCar}){
             })
             .then(r=>r.json())    
             .then((car)=>onEditCar(car))
+            setIsEditOn((on)=> !on)
          }
       })
    return(

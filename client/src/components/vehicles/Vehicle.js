@@ -28,6 +28,11 @@ const [isFormOn, setIsFormOn]= useState(false)
         setCars(updatedCars)
     }
     
+    function deleteCar(deletedCar){
+        const updatedCars = cars.filter(car=> car.id !== deletedCar.id)
+        setCars(updatedCars)
+    }
+
     if (!cars){return <h1 style={{fontSize:'100px'}}>Loading...</h1>}
     return(
     
@@ -43,6 +48,7 @@ const [isFormOn, setIsFormOn]= useState(false)
        key={car.id}
        car ={car}
        handelEditCar={updateCar}
+       onDeleteCar={deleteCar}
        />
        )}
        </>
