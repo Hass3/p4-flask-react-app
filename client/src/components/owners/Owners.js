@@ -14,6 +14,9 @@ function OwnerPage(){
     .then(o => setOwners(o))
    }, [])
    
+   function addOwner(newOwner){
+       setOwners([...owners,newOwner])
+   }
    
     return(
         <>
@@ -31,7 +34,7 @@ function OwnerPage(){
          />
         )}
         </>
-         : <OwnerForm/> }
+         : <OwnerForm onAddOwner={addOwner}/> }
         </>
 
 

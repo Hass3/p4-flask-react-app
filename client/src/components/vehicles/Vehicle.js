@@ -13,10 +13,9 @@ const [isFormOn, setIsFormOn]= useState(false)
         .then(c => setCars(c))
     },[])
 
-    // function addCar(){
-        
-
-    // }
+    function addCar(newCar){
+        setCars([...cars,newCar])
+    }
 
 
 
@@ -41,7 +40,7 @@ const [isFormOn, setIsFormOn]= useState(false)
        />
        )}
        </>
-      : <VehicleForm /> } 
+      : <VehicleForm onAddCar={addCar} /> } 
     </div>
     </>
     )

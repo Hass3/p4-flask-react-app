@@ -5,7 +5,7 @@ import * as yup from "yup";
 
 
 
-function VehicleForm(){
+function VehicleForm({onAddCar}){
    
 
    const formSchema =  yup.object().shape({
@@ -32,23 +32,23 @@ function VehicleForm(){
             headers:{"Content-Type": "application/json"},
             body: JSON.stringify(values)
          })
+         .then(r=>r.json())
+         .then(car=> onAddCar(car))
       }
    })
 
    return (
    <div>
     
-    <form onSubmit={formik.onSubmit}>
+    <form onSubmit={formik.handleSubmit}>
 
-    <input  onChange  = {formik.handleChange}  value={formik.values.make} placeholder="enter make" />
-    <input  onChange  ={formik.handleChange}  value={formik.values.model} placeholder="enter model" />
-    <input  onChange  ={formik.handleChange}  value={formik.values.year} placeholder="enter year" />
-    <input  onChange  ={formik.handleChange}  value={formik.values.price}  placeholder="enter price"/>
-    <input  onChange  ={formik.handleChange}  value={formik.values.img_url} placeholder="enter img address" />
-    <button>Register</button>
+    <input name="make"  onChange  = {formik.handleChange}  value={formik.values.make} placeholder="enter make" />
+    <input name="model"  onChange  ={formik.handleChange}  value={formik.values.model} placeholder="enter model" />
+    <input name="year"  onChange  ={formik.handleChange}  value={formik.values.year} placeholder="enter year" />
+    <input name="price"  onChange  ={formik.handleChange}  value={formik.values.price}  placeholder="enter price"/>
+    <input name="img_url"  onChange  ={formik.handleChange}  value={formik.values.img_url} placeholder="enter img address" />
+    <button type="submit">Register</button>
     </form>
-
-
 
    </div>
 
