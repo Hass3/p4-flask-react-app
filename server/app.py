@@ -56,7 +56,7 @@ class OwnerById(Resource):
     
     def patch(self, id):
         try: 
-            owner = Owner.query.filter(id=id).first()
+            owner = Owner.query.filter_by(id=id).first()
             for attr in request.get_json():
                 setattr(owner, attr, request.get_json()[attr] )
             db.session.add(owner)
@@ -111,7 +111,7 @@ class VehicleById(Resource):
        
     def patch(self, id):
         try: 
-            vehicle = Vehicle.query.filter(id=id).first()
+            vehicle = Vehicle.query.filter_by(id=id).first()
             for attr in request.get_json():
                 setattr(vehicle, attr, request.get_json()[attr] )
             db.session.add(vehicle)

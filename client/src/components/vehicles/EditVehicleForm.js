@@ -22,7 +22,7 @@ function EditVehicleForm({car, onEditCar}){
          },
          validationSchema: formSchema,
          onSubmit:(values) =>{
-            fetch('/vehicles', {
+            fetch(`/vehicles/${car.id}`, {
                method: "PATCH",
                headers:{"Content-Type": "application/json"},
                body: JSON.stringify(values)
@@ -42,8 +42,6 @@ function EditVehicleForm({car, onEditCar}){
         <input name="img_url" onChange={formik.handleChange} value={formik.values.img_url}/>
         <button type="submit">Edit Vehicle</button>
     </form>
-    
-    
     
     </>
 

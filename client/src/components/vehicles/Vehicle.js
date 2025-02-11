@@ -16,6 +16,17 @@ const [isFormOn, setIsFormOn]= useState(false)
     function addCar(newCar){
         setCars([...cars,newCar])
     }
+
+    function updateCar(updatedCar){
+        const updatedCars = cars.map((c)=>{
+            if(c.id === updatedCar.id){
+                return updatedCar
+            }else{
+                return c
+            }
+        })
+        setCars(updatedCars)
+    }
     
     if (!cars){return <h1 style={{fontSize:'100px'}}>Loading...</h1>}
     return(
@@ -30,16 +41,12 @@ const [isFormOn, setIsFormOn]= useState(false)
        {cars.map((car)=>
        <VehicleCard
        key={car.id}
-       id={car.id}
-       make={car.make}
-       year={car.year}
-       model={car.model}
-       img_url={car.img_url}
-       price = {car.price}
+       car ={car}
+       handelEditCar={updateCar}
        />
        )}
        </>
-      : <VehicleForm onAddCar={addCar} /> } 
+      : <VehicleForm onAddCar={addCar}/> } 
     </div>
     </>
     )
