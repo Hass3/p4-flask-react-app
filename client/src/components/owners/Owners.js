@@ -4,7 +4,7 @@ import OwnerCard from "./OwnerCard";
 import NavBar from "../NavBar";
 import OwnerForm from "./OwnerForm";
 function OwnerPage(){
-  const [owners, setOwners] = useState([])
+  const [owners, setOwners] = useState(null)
   const [isFormOn, setIsFormOn] = useState(false)
 
 
@@ -17,7 +17,7 @@ function OwnerPage(){
    function addOwner(newOwner){
        setOwners([...owners,newOwner])
    }
-   
+   if (!owners){return <h2>Loading...</h2>}
     return(
         <>
         <NavBar />

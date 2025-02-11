@@ -44,7 +44,14 @@ class Owners(Resource):
 class OwnerById(Resource):
     def get(self,id):
         owner =  Owner.query.filter_by(id=id).first()
-        return owner.to_dict(), 200
+        owner_json={
+            'id': owner.id,
+            'name': owner.name,
+            'date_of_birth': owner.date_of_birth,
+            'address': owner.address,
+            'vehicles' :[vehicle.to_dict() for vehicle in owner.vehicles]
+        }
+        return owner_json, 200
     
     
     def patch(self, id):
@@ -91,7 +98,16 @@ class Vehicles(Resource):
 class VehicleById(Resource):
     def get(self,id):
         car = Vehicle.query.filter_by(id = id).first()
-        return car.to_dict(), 200
+        car_json ={
+            'id': car.id,
+            'make': car.make,
+            'model': car.model,
+            'year': car.year,
+            'price': car.price,
+            'img_url': car.img_url,
+            'owners': [o.to_dict() for o in car.owners]
+        }
+        return car_json, 200
 
 
 class Titles(Resource):
