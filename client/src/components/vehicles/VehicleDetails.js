@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 function VehicleDetails(){
     const [car, setCar] = useState(null)
+    const[isEditOn, setIsEditOn]= useState(false)
     const params = useParams()
     const vehicleId = params.id
     
@@ -29,7 +30,8 @@ function VehicleDetails(){
     <img className="v-img" src={car.img_url} alt={car.model}/>
     <p>year: {car.year} price: {car.price} </p>
     </div>
-
+      <button>Delete</button>
+      <button>Edit</button>
     <h3>Previous Owners:</h3>
     <h4>click to see more info and previous vehicles of the owner</h4>
     {car.owners.map((o)=>

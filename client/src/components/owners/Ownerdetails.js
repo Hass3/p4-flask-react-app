@@ -15,17 +15,18 @@ function OwnerDetails(){
     if (!owner){return <h1 style={{fontSize:'100px'}}>Loading...</h1>}
     
     return(
-     
+        
         <>
         <NavBar />
         <h1>Name: {owner.name}</h1> 
         <h1>Birth Date: {owner.date_of_birth}</h1>
         <h1>Address: {owner.address}</h1>
-
+        <button>Delete</button>
+        <button>Edit</button>
         <h2>Previous Owned Vehicles:</h2>
-        <h4>click to see more info and previous owners of the vehicle</h4>
+        <h4>Click to see more info and previous owners of the vehicle</h4>
+        
         {owner.vehicles.map((c)=> 
-       
         <div id={c.id} className="car-card">
           <h3 className="v-model">{c.make} {c.model}</h3>
           <Link to={`/vehicles/${c.id}`}>
