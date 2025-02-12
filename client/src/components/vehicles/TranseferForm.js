@@ -4,7 +4,7 @@ import * as yup from 'yup'
 
 
 
-function TransferForm({vehicle, setTransferFormOn}){
+function TransferForm({vehicle, setTransferFormOn, setOwner}){
 const [owners,setOwners] = useState([])
     
     useEffect(()=>{
@@ -39,8 +39,11 @@ const [owners,setOwners] = useState([])
             body: JSON.stringify(newTitle)
         })
         .then(r=>r.json(newTitle))
-        .then(t=> setTransferFormOn(on=>!on))
-        
+        .then(t=> {    
+            console.log(t.owner)
+            const owner = t.owner
+            setOwner(owner)
+            setTransferFormOn(on=>!on)})
     }
    })
 

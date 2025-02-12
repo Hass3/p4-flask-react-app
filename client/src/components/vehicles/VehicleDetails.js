@@ -9,7 +9,7 @@ function VehicleDetails(){
     const[transferFromOn, setTransferFormOn] = useState(false)
     const params = useParams()
     const vehicleId = params.id
-    
+    const [owner, setOwner] = useState(null)
     useEffect(()=>{
         fetch(`/vehicles/${vehicleId}`)
         .then(r=>r.json())
@@ -17,16 +17,11 @@ function VehicleDetails(){
     }, [vehicleId])
    
 
-
-
-
-
     if(!car){return <h1 style={{fontSize:'100px'}}>Loading...</h1>}
     const currentTitle = car.titles.sort((a,b)=>new Date(b.transfer_date) - new Date(a.transfer_date))[0]
-    const currentOwner = currentTitle.owner
+    const currentOwner = owner ||currentTitle.owner
 
     return(
-    
     <>
 
     <NavBar/>
@@ -50,7 +45,7 @@ function VehicleDetails(){
       </Link>
     )}
     </>
-   :<TransferForm vehicle={car} setTransferFormOn = {setTransferFormOn}/>}
+   :<TransferForm vehicle={car} setTransferFormOn = {setTransferFormOn} setOwner={setOwner}/>}
 
 
     </>

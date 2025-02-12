@@ -144,7 +144,8 @@ class Titles(Resource):
                 'transfer_date': new_title.transfer_date,
                 'notes': new_title.notes,
                 'owner_id':new_title.owner_id,
-                'vehicle_id': new_title.vehicle_id
+                'vehicle_id': new_title.vehicle_id,
+                'owner': new_title.owner.to_dict()
             }
             return new_title_json, 201
         except: 
