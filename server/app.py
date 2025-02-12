@@ -49,7 +49,8 @@ class OwnerById(Resource):
             'name': owner.name,
             'date_of_birth': owner.date_of_birth,
             'address': owner.address,
-            'vehicles' :[vehicle.to_dict() for vehicle in owner.vehicles]
+            'vehicles' :[vehicle.to_dict() for vehicle in owner.vehicles],
+            'titles': [title.to_dict() for title in owner.titles]
         }
         return owner_json, 200
     
@@ -105,7 +106,8 @@ class VehicleById(Resource):
             'year': car.year,
             'price': car.price,
             'img_url': car.img_url,
-            'owners': [o.to_dict() for o in car.owners]
+            'owners': [o.to_dict() for o in car.owners],
+            'titles': [title.to_dict() for title in car.titles]
         }
         return car_json, 200
        

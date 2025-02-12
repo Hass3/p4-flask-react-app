@@ -18,8 +18,12 @@ function VehicleDetails(){
 
 
 
-    if(!car){return <h1 style={{fontSize:'100px'}}>Loading...</h1>}
 
+
+    if(!car){return <h1 style={{fontSize:'100px'}}>Loading...</h1>}
+    const currentTitle = car.titles.sort((a,b)=>new Date(b.transfer_date) - new Date(a.transfer_date))[0]
+    const currentOwner = currentTitle.owner
+    console.log(currentTitle)
     return(
     
     <>
@@ -34,9 +38,11 @@ function VehicleDetails(){
     <img className="v-img" src={car.img_url} alt={car.model}/>
     <p>year: {car.year} price: {car.price} </p>
     </div>
-      
-    <h3>Previous Owners:</h3>
-    <h4>click to see more info and previous vehicles of the owner</h4>
+    <h2>Current Owner:</h2>   
+    <p>name:{currentOwner.name}|| DOB:{currentOwner.date_of_birth}|| address:{currentOwner.address}</p>
+    
+    <h3>Vehicle Owner Records:</h3>
+    <h4>Click to see more info of owners of this vehicle</h4>
     {car.owners.map((o)=>
       <Link to={`/owners/${o.id}`}>
       <li key={o.id}>name:{o.name}|| DOB:{o.date_of_birth}|| address:{o.address}</li>
