@@ -1,0 +1,53 @@
+
+
+/*Hompage styling*/
+.icon-select-o{
+-webkit-box-shadow: 4px 1px 28px 22px rgba(0,0,0,0.98); 
+box-shadow: 4px 1px 28px 22px rgba(0,0,0,0.98);
+width: fit-content;
+justify-self: center;
+}
+
+.icon-select:hover{
+-webkit-box-shadow: 4px 1px 28px 22px rgba(196, 26, 26, 0.98); 
+box-shadow:  4px 1px 28px 22px rgba(196, 26, 26, 0.98);
+}
+.icon-select-v{
+    -webkit-box-shadow: 4px 1px 28px 22px rgba(0,0,0,0.98); 
+    box-shadow: 4px 1px 28px 22px rgba(0,0,0,0.98);
+    width: fit-content;
+    justify-self: center;
+    }
+    
+    .icon-select-o:hover{
+    -webkit-box-shadow: 4px 1px 28px 22px rgba(196, 26, 26, 0.98); 
+    box-shadow:  4px 1px 28px 22px rgba(196, 26, 26, 0.98);
+    }
+
+    .icon-select-v:hover{
+        -webkit-box-shadow: 4px 1px 28px 22px rgba(196, 26, 26, 0.98); 
+        box-shadow:  4px 1px 28px 22px rgba(196, 26, 26, 0.98);
+        }
+    
+    
+
+.title{
+    font-size: 50px;
+    justify-self: center;
+    color: firebrick;
+}
+
+
+/*NavBar styling*/
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    background-color: red;
+    color: black;
+}
+
+.logo{
+    color: black;
+    font-size: large;
+    font-style: italic;
+}
