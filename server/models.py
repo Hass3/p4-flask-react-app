@@ -41,7 +41,7 @@ class Title(db.Model,SerializerMixin):
     __tablename__ = 'titles'
 
     id = db.Column(db.Integer, primary_key = True)
-    transfer_date = db.Column(db.DateTime, default  = func.now())
+    transfer_date = db.Column(db.String)
     notes = db.Column(db.String)
     owner_id = db.Column(db.Integer, db.ForeignKey("owners.id"))
     vehicle_id = db.Column(db.Integer, db.ForeignKey("vehicles.id"))

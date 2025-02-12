@@ -128,6 +128,7 @@ class VehicleById(Resource):
         db.session.commit()
         return {}, 204
 
+
 class Titles(Resource):
     def get(self):
         titles =  [t.to_dict() for t in Title.query.all()]
@@ -138,14 +139,22 @@ class Titles(Resource):
             new_title = Title(owner_id = request.get_json()['owner_id'],vehicle_id =  request.get_json()['vehicle_id'] ,transfer_date = request.get_json()['transfer_date'], notes = request.get_json()['notes'])
             db.session.add(new_title)
             db.session.commit()
-            return new_title.to_dict(), 201
+            new_title_json = {
+                'id': new_title.id,
+                'transfer_date': new_title.transfer_date,
+                'notes': new_title.notes,
+                'owner_id':new_title.owner_id,
+                'vehicle_id': new_title.vehicle_id
+            }
+            return new_title_json, 201
         except: 
-            return {}, 400
-api.add_resource(Titles, '/titles')
+            return {'error': 'error'}, 400
+        
 api.add_resource(Vehicles, '/vehicles')
 api.add_resource(Owners, '/owners')
 api.add_resource(VehicleById, '/vehicles/<int:id>')
 api.add_resource(OwnerById, '/owners/<int:id>')
+api.add_resource(Titles, '/titles')
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
 

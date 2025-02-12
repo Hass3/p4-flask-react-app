@@ -2,12 +2,11 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import NavBar from "../NavBar";
 import { Link } from "react-router-dom";
-import EditVehicleForm from "./EditVehicleForm";
+import TransferForm from "./TranseferForm";
 
 function VehicleDetails(){
     const [car, setCar] = useState(null)
     const[transferFromOn, setTransferFormOn] = useState(false)
-
     const params = useParams()
     const vehicleId = params.id
     
@@ -25,7 +24,7 @@ function VehicleDetails(){
     if(!car){return <h1 style={{fontSize:'100px'}}>Loading...</h1>}
     const currentTitle = car.titles.sort((a,b)=>new Date(b.transfer_date) - new Date(a.transfer_date))[0]
     const currentOwner = currentTitle.owner
-    console.log(currentTitle)
+
     return(
     
     <>
@@ -33,6 +32,8 @@ function VehicleDetails(){
     <NavBar/>
   
     <button onClick={()=>setTransferFormOn(on=>!on)}>{!transferFromOn?'Transfer Ownership':'Back'}</button>
+    {!transferFromOn?
+    <>
     <div key={car.id} className="car-card">
     <h3 className="v-model">{car.make} {car.model}</h3>
     <img className="v-img" src={car.img_url} alt={car.model}/>
@@ -48,7 +49,8 @@ function VehicleDetails(){
       <li key={o.id}>name:{o.name}|| DOB:{o.date_of_birth}|| address:{o.address}</li>
       </Link>
     )}
-    
+    </>
+   :<TransferForm vehicle={car} setTransferFormOn = {setTransferFormOn}/>}
 
 
     </>

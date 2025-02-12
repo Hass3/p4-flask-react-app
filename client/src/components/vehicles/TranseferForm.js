@@ -4,8 +4,9 @@ import * as yup from 'yup'
 
 
 
-function TransferForm({vehicle}){
+function TransferForm({vehicle, setTransferFormOn}){
 const [owners,setOwners] = useState([])
+    
     useEffect(()=>{
     fetch('/owners')
     .then(r=>r.json())
@@ -20,31 +21,35 @@ const [owners,setOwners] = useState([])
    const formik = useFormik({
     initialValues:{ 
     ownerId: '',
-    transferDate: new Date().toDateString(),
+    transferDate: new Date().toISOString().split("T")[0],
     notes: ''
     },
     validationSchema: formSchema,
     onSubmit:(values)=>{
+        const newTitle = {
+            'transfer_date': values.transferDate,
+            'notes': values.notes,
+            'owner_id':values.ownerId,
+            'vehicle_id': vehicle.id
+        }
+        console.log(newTitle)
         fetch('/titles',{
             method: "POST",
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({
-                owner_id: values.ownerId,
-                transfer_date: values.transferDate,
-                notes: values.notes
-            })
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newTitle)
         })
-        .then(r=>r.json())
-        .then(t=>t)
+        .then(r=>r.json(newTitle))
+        .then(t=> setTransferFormOn(on=>!on))
+        
     }
    })
 
 
     return(
      <>
-     <form>
+     <form onSubmit={formik.handleSubmit}>
      <select 
-     name="newOwnerId"
+     name="ownerId"
      value={formik.values.ownerId}
      onChange={formik.handleChange}
      >
