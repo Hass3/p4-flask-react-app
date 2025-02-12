@@ -6,6 +6,8 @@ import EditVehicleForm from "./EditVehicleForm";
 
 function VehicleDetails(){
     const [car, setCar] = useState(null)
+    const[transferFromOn, setTransferFormOn] = useState(false)
+
     const params = useParams()
     const vehicleId = params.id
     
@@ -29,10 +31,8 @@ function VehicleDetails(){
     <>
 
     <NavBar/>
-    
-   
-    
-
+  
+    <button onClick={()=>setTransferFormOn(on=>!on)}>{!transferFromOn?'Transfer Ownership':'Back'}</button>
     <div key={car.id} className="car-card">
     <h3 className="v-model">{car.make} {car.model}</h3>
     <img className="v-img" src={car.img_url} alt={car.model}/>
