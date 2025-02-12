@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import EditOwnerForm from "./EditOwnerForm";
-
+import './owner.css'
 function OwnerCard({owner, onDeleteOwner, onEditOwner}){
     const [isEditOn,setIsEditOn] = useState(false)
 
@@ -19,15 +19,18 @@ function OwnerCard({owner, onDeleteOwner, onEditOwner}){
 
     return(
     
-        <>
-        <button onClick={handelDeleteClick}>Delete</button>
-        <button onClick={()=>setIsEditOn(on=>!on)}>{!isEditOn?'Edit': 'Back' }</button>
+        <div className="o-contanier">
+            <p className="o-card-btn-instr">Click to Edit Or Delete</p>
+        <button className='o-delete' onClick={handelDeleteClick}>🗑</button>
+        <button className={isEditOn?"o-back": "o-edit"} onClick={()=>setIsEditOn(on=>!on)}>{!isEditOn?'✎': '←' }</button>
         {!isEditOn ? 
+        <div className="o-card">
         <Link to = {`/owners/${owner.id}`}>
         <h1>{owner.name}</h1>
         </Link>
+        </div>
         : <EditOwnerForm owner={owner} onEditOwner={onEditOwner} setIsEditOn={setIsEditOn} />}
-        </>
+        </div>
 
 
     )

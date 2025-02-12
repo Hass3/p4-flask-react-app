@@ -26,7 +26,7 @@ function VehicleDetails(){
 
     <NavBar/>
   
-    <button onClick={()=>setTransferFormOn(on=>!on)}>{!transferFromOn?'Transfer Ownership':'Back'}</button>
+    <button onClick={()=>setTransferFormOn(on=>!on)}>{!transferFromOn?'Title Transfer':'Back'}</button>
     {!transferFromOn?
     <>
     <div key={car.id} className="car-card">

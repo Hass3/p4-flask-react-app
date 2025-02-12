@@ -1,0 +1,59 @@
+
+
+/*owner card*/
+.o-contanier{
+   border: 3px solid;
+   border-radius: 4px;
+   margin-top: 30px;
+   width: 600px;
+}
+.o-contanier:hover{
+-webkit-box-shadow: 1px 1px 10px 22px rgba(196, 26, 26, 0.98); 
+box-shadow:  1px 1px 10px 10px rgba(196, 26, 26, 0.98);
+}
+.o-card{
+    border: 3px solid;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+}
+
+.o-back{
+    float: right;
+    width: 70px;
+    font-size: larger;
+    height: 31px;
+}
+
+.o-delete{
+    float: right;
+    width: 70px;
+    font-size: larger;
+}
+.o-delete:hover{
+    color: firebrick;
+}
+
+.o-edit{
+    float: right;
+    width: 70px;
+    font-size: larger;
+}
+
+.o-edit:hover{
+    color: firebrick;
+}
+.o-back{
+    float: right;
+    width: 70px;
+    font-size: larger;
+}
+.o-back:hover{
+    color: firebrick;
+}
+
+.o-card-btn-instr{
+    justify-self: end;
+    margin-top: 10px;
+}

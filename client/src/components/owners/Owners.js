@@ -41,7 +41,7 @@ function OwnerPage(){
         <button onClick={()=>setIsFormOn((on)=>!on)}>{!isFormOn? "register owner": "back"}</button>
         {!isFormOn ?
         <>
-        <h1>Click on any vehicle owner</h1>
+        <h1 className="o-title">Registerd Vehicle Owners:</h1>
         {owners.map((o)=>
          <OwnerCard 
          key={o.id}
