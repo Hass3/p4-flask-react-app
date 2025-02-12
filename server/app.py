@@ -134,8 +134,13 @@ class Titles(Resource):
         return titles, 200
     
     def post(self):
-        pass
-
+        try:
+            new_title = Title(owner_id = request.get_json()['owner_id'],vehicle_id =  request.get_json()['vehicle_id'] ,transfer_date = request.get_json()['transfer_date'], notes = request.get_json()['notes'])
+            db.session.add(new_title)
+            db.session.commit()
+            return new_title.to_dict(), 201
+        except: 
+            return {}, 400
 api.add_resource(Titles, '/titles')
 api.add_resource(Vehicles, '/vehicles')
 api.add_resource(Owners, '/owners')
