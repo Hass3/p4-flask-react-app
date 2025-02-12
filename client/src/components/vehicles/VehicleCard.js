@@ -11,7 +11,7 @@ function VehicleCard( {car,handelEditCar,onDeleteCar} ){
             method: "DELETE"
         })
         .then(r=>r)
-        .then((car)=>onDeleteCar(car))
+        .then(()=>onDeleteCar(car))
     }
 
 
