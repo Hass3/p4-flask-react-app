@@ -1,6 +1,9 @@
 
 
 /*Hompage styling*/
+*{
+    background-color:  darkgray;
+}
 .icon-select-o{
 -webkit-box-shadow: 4px 1px 28px 22px rgba(0,0,0,0.98); 
 box-shadow: 4px 1px 28px 22px rgba(0,0,0,0.98);
@@ -29,25 +32,45 @@ box-shadow:  4px 1px 28px 22px rgba(196, 26, 26, 0.98);
         box-shadow:  4px 1px 28px 22px rgba(196, 26, 26, 0.98);
         }
     
-    
 
-.title{
-    font-size: 50px;
+.icon-title{
     justify-self: center;
     color: firebrick;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 2px 2px 3px rgb(0, 0, 0)
 }
 
+.title{
+    font-size:  100px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: firebrick;
+    text-align: center;
+    text-shadow: 2px 2px 3px rgb(0, 0, 0)
+}
+.Hp-description{
+    justify-self: center;   
+    text-shadow: 1px 1px 1px rgb(9, 9, 9);
+    text-align: center;
+    
+}
 
+.hp-p{
+    justify-self: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.hp-img{
+    width: 5px;
+}
 /*NavBar styling*/
 .navbar{
     display: flex;
     justify-content: space-around;
-    background-color: red;
+    background-color: rgb(16, 1, 1);
     color: black;
 }
 
 .logo{
-    color: black;
+    color: rgb(53, 43, 43);
     font-size: large;
     font-style: italic;
 }
