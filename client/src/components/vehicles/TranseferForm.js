@@ -35,6 +35,7 @@ const [owners,setOwners] = useState([])
             })
         })
         .then(r=>r.json())
+        .then(t=>t)
     }
    })
 
@@ -42,9 +43,31 @@ const [owners,setOwners] = useState([])
     return(
      <>
      <form>
-     <select>
-        {}
+     <select 
+     name="newOwnerId"
+     value={formik.values.ownerId}
+     onChange={formik.handleChange}
+     >
+    <option value=''>Select Onwer</option>
+      {owners.map((o)=>
+      <option key={o.id} value={o.id}>{o.name}</option>
+      )}
      </select>
+    <input 
+    type="date"
+    name="transferDate"
+    onChange={formik.handleChange} 
+    value={formik.values.transferDate} />
+    
+    <label>Notes:</label>
+    <textarea 
+    name="notes"
+    value={formik.values.notes}
+    onChange={formik.handleChange}
+    />
+   
+    <button type="submit">Transfer Ownership</button>
+
 
      </form>
      
@@ -54,3 +77,6 @@ const [owners,setOwners] = useState([])
 
 
 }
+
+
+export default TransferForm
