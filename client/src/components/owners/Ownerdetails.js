@@ -21,8 +21,6 @@ function OwnerDetails(){
         <h1>Name: {owner.name}</h1> 
         <h1>Birth Date: {owner.date_of_birth}</h1>
         <h1>Address: {owner.address}</h1>
-        <button>Delete</button>
-        <button>Edit</button>
         <h2>Previous Owned Vehicles:</h2>
         <h4>Click to see more info and previous owners of the vehicle</h4>
         

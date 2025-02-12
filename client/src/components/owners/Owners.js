@@ -4,7 +4,7 @@ import OwnerCard from "./OwnerCard";
 import NavBar from "../NavBar";
 import OwnerForm from "./OwnerForm";
 function OwnerPage(){
-  const [owners, setOwners] = useState(null)
+  const [owners, setOwners] = useState()
   const [isFormOn, setIsFormOn] = useState(false)
 
 
@@ -13,7 +13,24 @@ function OwnerPage(){
     .then(r=>r.json())
     .then(o => setOwners(o))
    }, [])
-   
+    
+   function editOwner(updatedO){
+     const updatedOwners = owners.map((o)=>{
+         if(o.id === updatedO.id){
+            return updatedO
+         }else{
+            return o
+         }
+     })
+    setOwners(updatedOwners)
+   }
+
+   function deleteOwner(deletedOwner){
+     const updatedOnwers = owners.filter((o)=>o.id !== deletedOwner.id)
+     setOwners(updatedOnwers)
+   }
+
+
    function addOwner(newOwner){
        setOwners([...owners,newOwner])
    }
@@ -28,9 +45,9 @@ function OwnerPage(){
         {owners.map((o)=>
          <OwnerCard 
          key={o.id}
-         id = {o.id}
-         name ={o.name}
-         dob={o.date_of_birth}
+         owner={o}
+         onEditOwner={editOwner}
+         onDeleteOwner={deleteOwner}
          />
         )}
         </>
