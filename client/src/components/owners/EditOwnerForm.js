@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 import { useFormik } from 'formik'
-
+import './owner.css'
 
 function EditOwnerForm({owner, onEditOwner,setIsEditOn}){
     const {id,name,date_of_birth,address} = owner
@@ -33,9 +33,11 @@ function EditOwnerForm({owner, onEditOwner,setIsEditOn}){
     
        return(
         <>
-        <form onSubmit={formik.handleSubmit}>
+        <form className='o-form' onSubmit={formik.handleSubmit}>
         <input name="name" onChange={formik.handleChange}  value={formik.values.name} placeholder="enter name"/>
+        <br/>
         <input name="date_of_birth" onChange={formik.handleChange}  value={formik.values.date_of_birth} placeholder="enter date of birth" />
+        <br/>
         <input name="address" onChange={formik.handleChange}  value={formik.values.address} placeholder="enter address"/> 
         <button>Edit Owner</button>
         </form>
