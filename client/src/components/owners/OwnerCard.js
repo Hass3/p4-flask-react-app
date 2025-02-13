@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import EditOwnerForm from "./EditOwnerForm";
-import './owner.css'
+
 function OwnerCard({owner, onDeleteOwner, onEditOwner}){
     const [isEditOn,setIsEditOn] = useState(false)
 

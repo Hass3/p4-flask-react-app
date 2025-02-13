@@ -31,14 +31,17 @@ function OwnerForm({onAddOwner}){
     
 
    return(
-    <>
-    <form onSubmit={formik.handleSubmit}>
-    <input name="name" onChange={formik.handleChange}  value={formik.values.name} placeholder="enter name"/>
-    <input name="date_of_birth" onChange={formik.handleChange}  value={formik.values.date_of_birth} placeholder="enter date of birth" />
-    <input name="address" onChange={formik.handleChange}  value={formik.values.address} placeholder="enter address"/> 
-    <button>Register</button>
+    <div className="o-form-contanier" >
+    <form className="o-form" onSubmit={formik.handleSubmit}>
+    <input className="form-input" name="name" onChange={formik.handleChange}  value={formik.values.name} placeholder="enter name"/>
+    <br/>
+    <input className="form-input"  name="date_of_birth" onChange={formik.handleChange}  value={formik.values.date_of_birth} placeholder="enter date of birth" />
+    <br/>
+    <input className="form-input"  name="address" onChange={formik.handleChange}  value={formik.values.address} placeholder="enter address"/> 
+    <br/>
+    <button className="form-btn">Register</button>
     </form>
-    </>
+    </div>
 
    )
 

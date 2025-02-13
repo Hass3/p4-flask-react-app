@@ -64,13 +64,21 @@ box-shadow:  4px 1px 28px 22px rgba(196, 26, 26, 0.98);
 /*NavBar styling*/
 .navbar{
     display: flex;
-    justify-content: space-around;
-    background-color: rgb(16, 1, 1);
-    color: black;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 3px solid;
+    width: fit-content;
+    float: right;
 }
 
 .logo{
-    color: rgb(53, 43, 43);
-    font-size: large;
-    font-style: italic;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-size: larger;
+    color: firebrick;
+}
+
+.logo:hover{
+    text-shadow: 1px 1px 1px rgb(9, 9, 9);
 }

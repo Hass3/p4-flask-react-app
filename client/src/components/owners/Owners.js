@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import OwnerCard from "./OwnerCard";
 import NavBar from "../NavBar";
 import OwnerForm from "./OwnerForm";
+import './owner.css'
 function OwnerPage(){
   const [owners, setOwners] = useState()
   const [isFormOn, setIsFormOn] = useState(false)
@@ -36,10 +37,10 @@ function OwnerPage(){
    }
    if (!owners){return <h2 style={{fontSize:'100px'}}>Loading...</h2>}
     return(
-        <>
+        <div>
         <NavBar />
-        <button onClick={()=>setIsFormOn((on)=>!on)}>{!isFormOn? "register owner": "back"}</button>
-        {!isFormOn ?
+        <button className={!isFormOn?'reg-btn' :'back-btn'} onClick={()=>setIsFormOn((on)=>!on)}>{!isFormOn? "register owner": "back"}</button>
+        {!isFormOn ? null: <OwnerForm onAddOwner={addOwner}/> }
         <>
         <h1 className="o-title">Registerd Vehicle Owners:</h1>
         {owners.map((o)=>
@@ -51,8 +52,8 @@ function OwnerPage(){
          />
         )}
         </>
-         : <OwnerForm onAddOwner={addOwner}/> }
-        </>
+        
+        </div>
 
 
     )
