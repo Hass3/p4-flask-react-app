@@ -3,29 +3,35 @@ import * as yup from "yup"
 import { useFormik } from "formik";
 
 
-function OwnerForm({onAddOwner}){
+function OwnerForm({onAddOwner, setIsFormOn}){
 
    const formSchema = yup.object().shape({
       name:yup.string().required("Must Fill In Name").max(15),
-      date_of_birth:yup.string().required("Must Enter Date Of Birth"),
+      dateOfBirth:yup.string().required("Must Enter Date Of Birth"),
       address: yup.string().required("Must Enter In Address")
    })
    
    const formik = useFormik({
       initialValues: {
          name:"",
-         date_of_birth:"",
+         dateOfBirth:"",
          address:""
       },
       validationSchema: formSchema,
       onSubmit: (values)=>{
+         const form_json={
+            'name': values.name,
+            'date_of_birth': values.dateOfBirth,
+            'address': values.address
+         }
          fetch("/owners", {
             method: "POST",
             headers:{"Content-Type": "application/json"},
-            body: JSON.stringify(values)
+            body: JSON.stringify(form_json)
          })
          .then(r=>r.json())
          .then(owner=> onAddOwner(owner)) 
+         setIsFormOn(on =>!on) 
       }
    })
     
@@ -33,14 +39,19 @@ function OwnerForm({onAddOwner}){
    return(
     <div className="o-form-contanier" >
     <form className="o-form" onSubmit={formik.handleSubmit}>
+    <p>{formik.errors.name}</p>
     <input className="form-input" name="name" onChange={formik.handleChange}  value={formik.values.name} placeholder="enter name"/>
     <br/>
-    <input className="form-input"  name="date_of_birth" onChange={formik.handleChange}  value={formik.values.date_of_birth} placeholder="enter date of birth" />
+    <p>{formik.errors.dateOfBirth}</p>
+    <input className="form-input"  name="dateOfBirth" onChange={formik.handleChange}  value={formik.values.dateOfBirth} placeholder="enter date of birth" />
     <br/>
+    <p>{formik.errors.address}</p>
     <input className="form-input"  name="address" onChange={formik.handleChange}  value={formik.values.address} placeholder="enter address"/> 
     <br/>
     <button className="form-btn">Register</button>
     </form>
+
+    
     </div>
 
    )

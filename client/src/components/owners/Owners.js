@@ -40,7 +40,7 @@ function OwnerPage(){
         <div>
         <NavBar />
         <button className={!isFormOn?'reg-btn' :'back-btn'} onClick={()=>setIsFormOn((on)=>!on)}>{!isFormOn? "register owner": "back"}</button>
-        {!isFormOn ? null: <OwnerForm onAddOwner={addOwner}/> }
+        {!isFormOn ? null: <OwnerForm onAddOwner={addOwner} setIsFormOn={setIsFormOn}/> }
         <>
         <h1 className="o-title">Registerd Vehicle Owners:</h1>
         {owners.map((o)=>

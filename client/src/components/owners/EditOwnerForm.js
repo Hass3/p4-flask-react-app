@@ -38,7 +38,7 @@ function EditOwnerForm({owner, onEditOwner,setIsEditOn}){
         <input name="date_of_birth" onChange={formik.handleChange}  value={formik.values.date_of_birth} placeholder="enter date of birth" />
         <br/>
         <input name="address" onChange={formik.handleChange}  value={formik.values.address} placeholder="enter address"/> 
-        <button>Edit Owner</button>
+        <button type='submit'>Edit Owner</button>
         </form>
         </>
     
