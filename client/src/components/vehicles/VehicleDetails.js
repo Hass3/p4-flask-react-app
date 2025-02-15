@@ -18,8 +18,10 @@ function VehicleDetails(){
    
 
     if(!car){return <h1 style={{fontSize:'100px'}}>Loading...</h1>}
-    const currentTitle = car.titles.sort((a,b)=>new Date(b.transfer_date) - new Date(a.transfer_date))[0]
-    const currentOwner = owner ||currentTitle.owner
+    const currentTitle = car.titles.length > 0?
+     car.titles.sort((a,b)=>new Date(b.transfer_date) - new Date(a.transfer_date))[0]
+     : null
+    const currentOwner = currentTitle? currentTitle.owner : null
 
     return(
     <>
@@ -35,7 +37,9 @@ function VehicleDetails(){
     <p>year: {car.year} price: {car.price} </p>
     </div>
     <h2>Current Owner:</h2>   
+    {currentOwner?(
     <p>name:{currentOwner.name}|| DOB:{currentOwner.date_of_birth}|| address:{currentOwner.address}</p>
+    ): <h1>No owner found</h1>}
     
     <h3>Vehicle Owner Records:</h3>
     <h4>Click to see more info of owners of this vehicle</h4>

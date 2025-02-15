@@ -26,6 +26,7 @@ function OwnerCard({owner, onDeleteOwner, onEditOwner}){
         <button className={isEditOn?"o-back": "o-edit"} onClick={()=>setIsEditOn(on=>!on)}>{!isEditOn?'✎': '←' }</button>
         {!isEditOn ? 
         <div className="o-card">
+        
         <Link className="o-name" to = {`/owners/${owner.id}`}>
         <h1>{owner.name}</h1>
         </Link>
