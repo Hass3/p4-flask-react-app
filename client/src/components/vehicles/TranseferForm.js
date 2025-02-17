@@ -38,11 +38,9 @@ const [owners,setOwners] = useState([])
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(newTitle)
         })
-        .then(r=>r.json(newTitle))
+        .then(r=>r.json())
         .then(t=> {    
-            console.log(t.owner)
-            const owner = t.owner
-            setOwner(owner)
+            setOwner(t.owner)
             setTransferFormOn(on=>!on)})
     }
    })

@@ -17,9 +17,11 @@ function VehicleCard( {car,handelEditCar,onDeleteCar} ){
 
 
     return(
-    <>
+    <div className="v-container">
     <button onClick={handelDeleteClick}>Delete</button>
     <button key="edit btn" onClick={()=>setIsEditOn((on)=>!on)}>{!isEditOn?'Edit': 'Back'}</button>
+    <h3>Click On Image for more Info</h3>
+    <div className="v-card">
     {!isEditOn ?
     <div className="car-card">
     <h3 className="v-model">{make} {model}</h3>
@@ -28,12 +30,12 @@ function VehicleCard( {car,handelEditCar,onDeleteCar} ){
     </Link>
     
     </div>
-    
     : <EditVehicleForm setIsEditOn={setIsEditOn} car={car} onEditCar={handelEditCar}/>
-    }
+        }
+    </div>
 
 
-    </>
+    </div>
 
     
     )

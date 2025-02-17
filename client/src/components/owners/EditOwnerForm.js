@@ -4,11 +4,14 @@ import { useFormik } from 'formik'
 function EditOwnerForm({owner, onEditOwner,setIsEditOn}){
     const {id,name,date_of_birth,address} = owner
 
+
+
     const formSchema = yup.object().shape({
           name:yup.string().required("Must Fill In Name").max(15),
           date_of_birth:yup.string().required("Must Enter Date Of Birth"),
           address: yup.string().required("Must Enter In Address")
        })
+
        
        const formik = useFormik({
           initialValues: {

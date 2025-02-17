@@ -9,20 +9,23 @@ function VehicleDetails(){
     const[transferFromOn, setTransferFormOn] = useState(false)
     const params = useParams()
     const vehicleId = params.id
-    const [owner, setOwner] = useState(null)
+    const [owner, setOwner] = useState({})
     useEffect(()=>{
         fetch(`/vehicles/${vehicleId}`)
         .then(r=>r.json())
-        .then(c=>setCar(c))
+        .then(c=>{
+          setCar(c)
+          if (c.titles.length >0){
+            const currentTitle =  c.titles.sort((a, b) => new Date(b.transfer_date) - new Date(a.transfer_date))[0];
+            setOwner(currentTitle.owner)
+          }
+        })
     }, [vehicleId])
    
 
     if(!car){return <h1 style={{fontSize:'100px'}}>Loading...</h1>}
-    const currentTitle = car.titles.length > 0?
-     car.titles.sort((a,b)=>new Date(b.transfer_date) - new Date(a.transfer_date))[0]
-     : null
-    const currentOwner = currentTitle? currentTitle.owner : null
-
+   
+    
     return(
     <>
 
@@ -36,18 +39,21 @@ function VehicleDetails(){
     <img className="v-img" src={car.img_url} alt={car.model}/>
     <p>year: {car.year} price: {car.price} </p>
     </div>
-    <h2>Current Owner:</h2>   
-    {currentOwner?(
-    <p>name:{currentOwner.name}|| DOB:{currentOwner.date_of_birth}|| address:{currentOwner.address}</p>
-    ): <h1>No owner found</h1>}
     
+    <h2>Current Owner:</h2>   
+    {owner.name ?
+    <p>name:{owner.name}|| DOB:{owner.date_of_birth}|| address:{owner.address}</p>
+      : 
+      <p>No regestired owners</p>}
     <h3>Vehicle Owner Records:</h3>
     <h4>Click to see more info of owners of this vehicle</h4>
+    
     {car.owners.map((o)=>
       <Link to={`/owners/${o.id}`}>
       <li key={o.id}>name:{o.name}|| DOB:{o.date_of_birth}|| address:{o.address}</li>
       </Link>
     )}
+    
     </>
    :<TransferForm vehicle={car} setTransferFormOn = {setTransferFormOn} setOwner={setOwner}/>}
 

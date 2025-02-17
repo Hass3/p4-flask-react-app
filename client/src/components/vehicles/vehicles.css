@@ -12,12 +12,20 @@
 }
 
 
-.car-card{
+.v-container{
     border: 3px solid;
+    border-radius: 4px;
+    width: 600px;
+    margin-top: 30px;
+}
+
+.car-card{
+    border: 2px solid;
     border-radius: 5px;
     padding: 20px;
-    margin-bottom: 20px;
-    width: 250px;
+    width: 400px;
+    justify-self: center;
+   margin-bottom: 20px; 
 }
 
 .car-card:hover{
@@ -27,8 +35,9 @@
 
 .v-img{
     height: 150px;
-    width: 250px;
+    width: 350px;
     object-fit: cover;
+    margin-left: 25px;
 }
 
 .v-page-btn{
