@@ -2,6 +2,10 @@
 
 .v-h1{
     justify-self: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size:40px;
+    text-shadow: 2px 2px 3px rgb(0, 0, 0)
 }
 
 .card-container{
@@ -32,7 +36,6 @@
     color: firebrick;
 }
 
-
 .v-img{
     height: 150px;
     width: 350px;
@@ -44,3 +47,40 @@
     color: brown;
 }
 
+.v-edit-btn{
+    float: right;
+    width: 70px;
+    font-size: larger;
+}
+.v-edit-btn:hover{
+    color: firebrick;
+}
+
+.v-back-btn{
+    float: right;
+    width: 70px;
+    font-size: larger;
+}
+.v-back-btn:hover{
+    color: firebrick;
+}
+
+.v-delete-btn{
+    float: right;
+    width: 70px;
+    font-size: larger;
+}
+.v-delete-btn:hover{
+    color: firebrick;
+}
+
+.v-h3{
+    justify-self: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: firebrick;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0)
+
+}

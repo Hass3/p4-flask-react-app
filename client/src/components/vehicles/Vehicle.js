@@ -44,7 +44,7 @@ const [isFormOn, setIsFormOn]= useState(false)
     <button className={!isFormOn ? "v-page-btn" : "v-form-btn"} onClick={()=>setIsFormOn(on => !on)}>{!isFormOn ?"Register Vehicle" : "Back"}</button>
         {!isFormOn ? 
         <>
-        <h1 className="v-h1">Click Vehicle For More Info</h1>
+        <h1 className="v-h1">Registerd Vehicles</h1>
        {cars.map((car)=>
        <VehicleCard
        key={car.id}
