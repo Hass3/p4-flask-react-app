@@ -4,9 +4,6 @@ from sqlalchemy.ext.associationproxy import association_proxy
 
 from config import db
 
-
-
-
 # Models go here!
 class Owner(db.Model, SerializerMixin):
     __tablename__ = 'owners'
@@ -15,7 +12,6 @@ class Owner(db.Model, SerializerMixin):
     name = db.Column(db.String)
     date_of_birth = db.Column(db.String)
     address = db.Column(db.String)
-    
     
     titles = db.relationship("Title", back_populates = "owner", cascade='all, delete-orphan')
     vehicles = db.relationship("Vehicle", secondary = "titles",  back_populates = "owners", overlaps = 'titles')
@@ -46,7 +42,6 @@ class Title(db.Model,SerializerMixin):
     owner_id = db.Column(db.Integer, db.ForeignKey("owners.id"))
     vehicle_id = db.Column(db.Integer, db.ForeignKey("vehicles.id"))
     
-
     owner = db.relationship("Owner" , back_populates = "titles",  overlaps="vehicles,owners")
     vehicle = db.relationship("Vehicle", back_populates = "titles",  overlaps="owners,vehicles")
     

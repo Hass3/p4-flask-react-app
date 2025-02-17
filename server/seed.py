@@ -3,7 +3,7 @@
 # Standard library imports
 from random import randint, choice as rc
 from models import Vehicle,Owner,Title
-
+import datetime
 from config import *
 
 
@@ -28,19 +28,19 @@ with app.app_context():
         Vehicle(make="Acura", model="TL", year=2007, price=5000, img_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToEGkexVIwXmTJYuq4ooejPBuz5FJMY_VbdQ&s")
     ]
 
-
     titles = [
-        Title(owner=owners[0], vehicle=vehicles[0], transfer_date='2021, 5, 20', notes="First owner"),
-        Title(owner=owners[1], vehicle=vehicles[1], transfer_date='2022, 1, 15', notes="Bought used"),
-        Title(owner=owners[2], vehicle=vehicles[2], transfer_date='2020, 9, 10', notes="Company vehicle"),
-        Title(owner=owners[3], vehicle=vehicles[3], transfer_date='2019, 3, 5', notes="Family car"),
-        Title(owner=owners[4], vehicle=vehicles[4], transfer_date='2023, 7, 8', notes="Brand new"),
-        Title(owner=owners[1], vehicle=vehicles[0], transfer_date='2023, 4, 12', notes="Second owner"),
-        Title(owner=owners[3], vehicle=vehicles[1], transfer_date='2024, 2, 1', notes="Recently purchased"),
-        Title(owner=owners[0], vehicle=vehicles[3], transfer_date='2020, 8, 18', notes="Transferred from family"),
-        Title(owner=owners[2], vehicle=vehicles[4], transfer_date='2021, 12, 24', notes="Gifted"),
-        Title(owner=owners[4], vehicle=vehicles[2], transfer_date='2022, 11, 3', notes="Lease buyout")
-    ]
+    Title(owner=owners[0], vehicle=vehicles[0], transfer_date='2021-05-20', notes="First owner"),
+    Title(owner=owners[1], vehicle=vehicles[1], transfer_date='2022-01-15', notes="Bought used"),
+    Title(owner=owners[2], vehicle=vehicles[2], transfer_date='2020-09-10', notes="Company vehicle"),
+    Title(owner=owners[3], vehicle=vehicles[3], transfer_date='2019-03-05', notes="Family car"),
+    Title(owner=owners[4], vehicle=vehicles[4], transfer_date='2023-07-08', notes="Brand new"),
+    Title(owner=owners[1], vehicle=vehicles[0], transfer_date='2023-04-12', notes="Second owner"),
+    Title(owner=owners[3], vehicle=vehicles[1], transfer_date='2024-02-01', notes="Recently purchased"),
+    Title(owner=owners[0], vehicle=vehicles[3], transfer_date='2020-08-18', notes="Transferred from family"),
+    Title(owner=owners[2], vehicle=vehicles[4], transfer_date='2021-12-24', notes="Gifted"),
+    Title(owner=owners[4], vehicle=vehicles[2], transfer_date='2022-11-03', notes="Lease buyout")
+]
+
 
 
 
