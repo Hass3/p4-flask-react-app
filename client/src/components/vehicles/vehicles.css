@@ -192,3 +192,13 @@
 .back-btn{
     float: right;
 }
+
+.title-btn-submit{
+    border-radius: 3px;
+    font-size: medium;
+    background-color: rgb(2, 118, 97);
+}
+
+.title-btn-submit:hover{
+    background-color: rgb(60, 49, 49);
+}

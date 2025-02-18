@@ -14,12 +14,12 @@ function NavBar(){
     <NavLink 
     to= '/owners'
     className = 'logo'>
-        owners
+        Owners
     </NavLink>
     <NavLink 
     to= '/vehicles'
     className = 'logo'>
-        vehicles
+        Vehicles
     </NavLink>
    </nav>
 

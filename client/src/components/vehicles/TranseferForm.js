@@ -15,7 +15,7 @@ const [owners,setOwners] = useState([])
     
    const formSchema = yup.object().shape({
     ownerId: yup.string().required("Must choose owner"),
-    notes:yup.string().required("Must Add Descirption").max(15)
+    notes:yup.string().required("Must Fill In Notes").max(15)
    })
    
    const formik = useFormik({
@@ -49,6 +49,9 @@ const [owners,setOwners] = useState([])
     return(
      <div className="title-contianer">
      <form className="title-form" onSubmit={formik.handleSubmit}>
+        <h3>Transfer Ownership Here</h3>
+     <label>New Owner</label>
+     <br/>
      <select 
      name="ownerId"
      value={formik.values.ownerId}
@@ -59,21 +62,28 @@ const [owners,setOwners] = useState([])
       <option key={o.id} value={o.id}>{o.name}</option>
       )}
      </select>
+     <br/>
+     <label>Transfer Date</label>
+     <br/>
     <input 
     type="date"
     name="transferDate"
     onChange={formik.handleChange} 
     value={formik.values.transferDate} />
+    <br/>
     
     <label>Notes:</label>
+    <br/>
     <textarea 
     name="notes"
     value={formik.values.notes}
     onChange={formik.handleChange}
     />
-   
-    <button type="submit">Transfer Ownership</button>
-
+    <p>{formik.errors.ownerId}</p>
+    <p>{formik.errors.transferDate}</p>
+    <p>{formik.errors.notes}</p>
+    <button className="title-btn-submit" type="submit">Transfer Ownership</button>
+    
 
      </form>
      
