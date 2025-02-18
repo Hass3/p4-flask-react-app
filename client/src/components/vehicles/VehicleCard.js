@@ -19,8 +19,8 @@ function VehicleCard( {car,handelEditCar,onDeleteCar} ){
     return(
     <div className="v-container">
     <button className="v-delete-btn" onClick={handelDeleteClick}>🗑</button>
-    <button className={!isEditOn? "v-edit-btn": 'v-back-btn'} key="edit btn" onClick={()=>setIsEditOn((on)=>!on)}>{!isEditOn?'✎': '←'}</button>
-    <h3 className="v-h3">CLICK IMAGE FOR MORE INFO</h3>
+    <button className={!isEditOn? "v-edit-btn": 'v-arrow-btn'} key="edit btn" onClick={()=>setIsEditOn((on)=>!on)}>{!isEditOn?'✎': '←'}</button>
+    <h3 className="v-h3">{!isEditOn? 'CLICK IMAGE FOR MORE INFO': 'EDIT INFO'}</h3>
     <div className="v-card">
     {!isEditOn ?
     <div className="car-card">

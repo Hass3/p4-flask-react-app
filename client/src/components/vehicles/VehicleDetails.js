@@ -25,7 +25,6 @@ function VehicleDetails(){
 
     if(!car){return <h1 style={{fontSize:'100px'}}>Loading...</h1>}
    
-    
     return(
     <>
 

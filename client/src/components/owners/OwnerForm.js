@@ -39,6 +39,7 @@ function OwnerForm({onAddOwner, setIsFormOn}){
    return(
     <div className="o-form-contanier" >
     <form className="o-form" onSubmit={formik.handleSubmit}>
+    <h4>Regester Owner Here</h4>
     <p>{formik.errors.name}</p>
     <input className="form-input" name="name" onChange={formik.handleChange}  value={formik.values.name} placeholder="enter name"/>
     <br/>

@@ -20,7 +20,7 @@ function OwnerCard({owner, onDeleteOwner, onEditOwner}){
     return(
     
         <div className="o-contanier">
-            <h3>CLICK NAME FOR MORE INFO</h3>
+            <h3 className="o-card-title">CLICK NAME FOR MORE INFO</h3>
             <p className="o-card-btn-instr">Click to Edit Or Delete</p>
         <button className='o-delete' onClick={handelDeleteClick}>🗑</button>
         <button className={isEditOn?"o-back": "o-edit"} onClick={()=>setIsEditOn(on=>!on)}>{!isEditOn?'✎': '←' }</button>

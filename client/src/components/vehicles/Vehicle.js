@@ -41,8 +41,8 @@ const [isFormOn, setIsFormOn]= useState(false)
     <>
     <NavBar/>
     <div className="card-container">
-    <button className={!isFormOn ? "v-page-btn" : "v-form-btn"} onClick={()=>setIsFormOn(on => !on)}>{!isFormOn ?"Register Vehicle" : "Back"}</button>
-        {!isFormOn ? 
+    <button className={isFormOn ? "v-back-btn" : "v-form-btn"} onClick={()=>setIsFormOn(on => !on)}>{!isFormOn ?"Register Vehicle" : "Back"}</button>
+        {!isFormOn ? null  : <VehicleForm onAddCar={addCar}/> } 
         <>
         <h1 className="v-h1">Registerd Vehicles</h1>
        {cars.map((car)=>
@@ -54,7 +54,7 @@ const [isFormOn, setIsFormOn]= useState(false)
        />
        )}
        </>
-      : <VehicleForm onAddCar={addCar}/> } 
+     
     </div>
     </>
     )

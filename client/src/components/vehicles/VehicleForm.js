@@ -3,10 +3,7 @@ import { useState } from "react";
 import {useFormik} from 'formik'
 import * as yup from "yup";
 
-
-
 function VehicleForm({onAddCar}){
-   
 
    const formSchema =  yup.object().shape({
       make: yup.string().required("Must Enter Vehicle Make").max(15),
@@ -16,6 +13,7 @@ function VehicleForm({onAddCar}){
       img_url: yup.string().required("Must Insert Image Address")
    })
 
+   
    const formik = useFormik({
       initialValues :{
          make:"",
@@ -38,24 +36,27 @@ function VehicleForm({onAddCar}){
    })
 
    return (
-   <div>
-    
-    <form onSubmit={formik.handleSubmit}>
+   <div className="v-form-contanier">
 
-    <input name="make"  onChange  = {formik.handleChange}  value={formik.values.make} placeholder="enter make" />
-    <input name="model"  onChange  ={formik.handleChange}  value={formik.values.model} placeholder="enter model" />
-    <input name="year"  onChange  ={formik.handleChange}  value={formik.values.year} placeholder="enter year" />
-    <input name="price"  onChange  ={formik.handleChange}  value={formik.values.price}  placeholder="enter price"/>
-    <input name="img_url"  onChange  ={formik.handleChange}  value={formik.values.img_url} placeholder="enter img address" />
-    <button type="submit">Register</button>
+    <form className='v-form'onSubmit={formik.handleSubmit}>
+    
+    <h4>Register Vehicle Here</h4>
+    <p>{formik.errors.make}</p>
+    <input className="form-input" name="make"  onChange  = {formik.handleChange}  value={formik.values.make} placeholder="enter make" />
+    <p>{formik.errors.model}</p>
+    <input className="form-input" name="model"  onChange  ={formik.handleChange}  value={formik.values.model} placeholder="enter model" />
+    <p>{formik.errors.year}</p>
+    <input className="form-input" name="year"  onChange  ={formik.handleChange}  value={formik.values.year} placeholder="enter year" />
+    <p>{formik.errors.price}</p>
+    <input className="form-input" name="price"  onChange  ={formik.handleChange}  value={formik.values.price}  placeholder="enter price"/>
+    <p>{formik.errors.img_url}</p>
+    <input className="form-input" name="img_url"  onChange  ={formik.handleChange}  value={formik.values.img_url} placeholder="enter img address" />
+    <button className="form-btn" type="submit">Register</button>
     </form>
 
    </div>
 
-
    )
-
-
 
 }
 
