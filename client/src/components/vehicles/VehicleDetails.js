@@ -30,10 +30,10 @@ function VehicleDetails(){
 
     <NavBar/>
   
-    <button onClick={()=>setTransferFormOn(on=>!on)}>{!transferFromOn?'Title Transfer':'Back'}</button>
-    {!transferFromOn?
+    <button className={!transferFromOn?"title-transfer-btn": 'back-btn'} onClick={()=>setTransferFormOn(on=>!on)}>{!transferFromOn?'Title Transfer':'Back'}</button>
+    {!transferFromOn? null:<TransferForm vehicle={car} setTransferFormOn = {setTransferFormOn} setOwner={setOwner}/>}
     <>
-    <div key={car.id} className="car-card">
+    <div key={car.id} className="car-de-card">
     <h3 className="v-model">{car.make} {car.model}</h3>
     <img className="v-img" src={car.img_url} alt={car.model}/>
     <p>year: {car.year} price: {car.price} </p>
@@ -54,7 +54,7 @@ function VehicleDetails(){
     )}
     
     </>
-   :<TransferForm vehicle={car} setTransferFormOn = {setTransferFormOn} setOwner={setOwner}/>}
+   
 
 
     </>

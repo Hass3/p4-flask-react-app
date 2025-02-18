@@ -47,8 +47,8 @@ const [owners,setOwners] = useState([])
 
 
     return(
-     <>
-     <form onSubmit={formik.handleSubmit}>
+     <div className="title-contianer">
+     <form className="title-form" onSubmit={formik.handleSubmit}>
      <select 
      name="ownerId"
      value={formik.values.ownerId}
@@ -77,7 +77,7 @@ const [owners,setOwners] = useState([])
 
      </form>
      
-     </>
+     </div>
 
     )
 

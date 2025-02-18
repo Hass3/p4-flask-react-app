@@ -151,3 +151,44 @@
     font-size: large;
     background-color: rgb(100, 2, 2);
 }
+.car-de-card{
+    border: 3px solid;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    justify-self: left;
+    margin-bottom: 20px; 
+}
+
+
+.title-transfer-btn{
+    border: 2px solid;
+    border-radius: 5px;
+    font-size: larger;
+    background-color: rgb(2, 118, 97);
+    margin-right: 20px;
+    float: right;
+}
+
+.title-transfer-btn:hover{
+    background-color: rgb(60, 49, 49);
+}
+
+.title-form{
+    width: 300px;
+    height:fit-content;
+    color: rgb(0, 0, 0);
+    border: 1px solid;
+    border-radius: 5px;
+    font-style: italic;
+    border-radius: 3%;
+    margin-top: 200px;
+    margin-bottom: 200px;
+}
+
+.title-contianer{
+    float: right;
+}
+.back-btn{
+    float: right;
+}
