@@ -33,11 +33,11 @@ function OwnerDetails(){
         { car.make?
         <p>{car.year}|{car.make}|{car.model}</p>
         : <p>No regestired Vehicles</p>}
-        <h2>Owned Vehicles:</h2>
-        <h4>Click to see more info of {owner.name}'s owned vehicles</h4>
-      
+        <h2 style={{justifySelf:'center'}}>Owned Vehicles:</h2>
+        <h4 style={{justifySelf: 'center'}}>Click to see more info of {owner.name}'s owned vehicles</h4>
+      <div className="car-container">
         {owner.vehicles.map((c)=> 
-        <div id={c.id} className="car-card">
+        <div id={c.id} className="car-card-details">
           <h3 className="v-model">{c.make} {c.model}</h3>
           <Link to={`/vehicles/${c.id}`}>
           <img className="v-img" src={c.img_url} alt={c.model}/>
@@ -46,6 +46,7 @@ function OwnerDetails(){
         </div>
         
       )}
+      </div>
         </>
 
 

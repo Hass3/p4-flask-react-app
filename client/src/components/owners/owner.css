@@ -145,3 +145,19 @@ box-shadow:  1px 1px 15px 5px rgba(0, 0, 0, 0.98);
     text-align: center;
     text-shadow: 2px 2px 2px rgb(0, 0, 0)    
 }
+.car-container{
+    display: flex;
+}
+
+.car-card-details{
+    border: 2px solid;
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
+    justify-self: left;
+   margin-bottom: 20px; 
+}
+
+.car-card-details:hover{
+    color: firebrick;
+}
