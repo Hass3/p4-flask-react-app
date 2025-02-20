@@ -21,6 +21,11 @@ function NavBar(){
     className = 'logo'>
         Vehicles
     </NavLink>
+    <NavLink 
+    to= '/titles'
+    className = 'logo'>
+        Title Records
+    </NavLink>
    </nav>
 
 

@@ -4,6 +4,7 @@ import OwnerPage from "./components/owners/Owners";
 import Vehicle from "./components/vehicles/Vehicle";
 import VehicleDetails from "./components/vehicles/VehicleDetails";
 import OwnerDetails from "./components/owners/Ownerdetails";
+import TitleRecords from "./components/TitleRecords";
 const routes = [
 {
    path: "/",
@@ -24,8 +25,11 @@ const routes = [
 {
   path:"/owners/:id",
   element:<OwnerDetails />
+},
+{
+  path:"/titles",
+  element: <TitleRecords/>
 }
-
 ]
 
 export default routes

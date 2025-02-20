@@ -31,7 +31,7 @@ function OwnerDetails(){
         <h1>Address: {owner.address}</h1>
         <h2>Current Vehicle:</h2>
         { car.make?
-        <p>{car.year}|{car.make}|{car.model}</p>
+        <p>Year: {car.year}| Make: {car.make}| Model: {car.model}</p>
         : <p>No regestired Vehicles</p>}
         <h2 style={{justifySelf:'center'}}>Owned Vehicles:</h2>
         <h4 style={{justifySelf: 'center'}}>Click to see more info of {owner.name}'s owned vehicles</h4>

@@ -34,7 +34,8 @@ function VehicleDetails(){
     {!transferFromOn? null:<TransferForm vehicle={car} setTransferFormOn = {setTransferFormOn} setOwner={setOwner}/>}
     <>
     <div key={car.id} className="car-de-card">
-    <h3 className="v-model">{car.make} {car.model}</h3>
+    <h3 className="v-model">Make: {car.make}</h3>
+    <h4>Model: {car.model}</h4>
     <img className="v-img" src={car.img_url} alt={car.model}/>
     <p>year: {car.year} price: {car.price} </p>
     </div>

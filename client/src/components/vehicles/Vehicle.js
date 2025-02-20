@@ -5,7 +5,7 @@ import "./vehicles.css"
 import NavBar from "../NavBar";
 import VehicleForm from "./VehicleForm";
 function Vehicle(){
-const  [cars, setCars] = useState([])
+const  [cars, setCars] = useState(null)
 const [isFormOn, setIsFormOn]= useState(false)
 
     useEffect(()=>{

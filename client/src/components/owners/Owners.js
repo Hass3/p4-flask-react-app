@@ -5,7 +5,7 @@ import NavBar from "../NavBar";
 import OwnerForm from "./OwnerForm";
 import './owner.css'
 function OwnerPage(){
-  const [owners, setOwners] = useState()
+  const [owners, setOwners] = useState(null)
   const [isFormOn, setIsFormOn] = useState(false)
 
 
