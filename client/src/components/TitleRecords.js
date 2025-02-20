@@ -8,20 +8,32 @@ function TitleRecords(){
    
    
     useEffect(()=> {
-        fetch('./titles')
+        fetch('/titles')
         .then(r=>r.json())
         .then((t)=>setTitles(t))
     }, [])
 
-    
+    if (!titles){return <h1 style={{fontSize:'100px'}}>Loading...</h1>}
 
     return(
         <>
         <NavBar/>
         <div className='title-container'>
-        <li>
-            hello
-        </li>
+        <h1 className='title-title'>Title Records</h1>
+        
+        {titles.map((t)=>
+        <div className='title-card'>
+            <h2>Owner: {t.owner.name}</h2>
+
+            <h2>Vehicle:</h2>
+            <h3>Make:{t.vehicle.make}</h3> 
+            <h3>Model: {t.vehicle.model}</h3>
+            <h3>Year: {t.vehicle.year}</h3>
+            <h4>Purchased For: {t.vehicle.price}</h4>
+            <p>Transfer Date: {t.transfer_date}</p>
+            <p>Notes: {t.notes}</p>
+        </div>
+        )}
     </div>
     </>
     )

@@ -82,3 +82,18 @@ box-shadow:  4px 1px 28px 22px rgba(196, 26, 26, 0.98);
 .logo:hover{
     text-shadow: 1px 1px 1px rgb(9, 9, 9);
 }
+
+
+.title-card{
+    border: 3px solid;
+    margin-top: 3px;
+    width: 200px;
+}
+
+.title-title{
+    justify-self: center;
+    font-size:  50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 3px rgb(0, 0, 0)
+}
