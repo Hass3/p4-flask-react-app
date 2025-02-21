@@ -10,7 +10,7 @@ function EditVehicleForm({car, onEditCar, setIsEditOn}){
          model: yup.string().required("Must Enter Vehicle Model"),
          year: yup.number().positive().integer().required("Must Enter Vehicle Year").typeError("Please enter an Integer").max(2025),
          price: yup.number().positive().integer().required("Must Enter Price").typeError("Please enter an Integer"),
-         img_url: yup.string().required("Must Insert Image Address")
+         imgUrl: yup.string().required("Must Insert Image Address")
       })
       const formik = useFormik({
          initialValues :{
@@ -18,14 +18,21 @@ function EditVehicleForm({car, onEditCar, setIsEditOn}){
             model:`${car.model}`,
             year: `${car.year}`,
             price: `${car.price}`,
-            img_url: `${car.img_url}`
+            imgUrl: `${car.img_url}`
          },
          validationSchema: formSchema,
          onSubmit:(values) =>{
+            const updatedCarJson = {
+               'make': values.make,
+               'model':values.model,
+               'year': values.year,
+               'price':values.price,
+               'img_url':values.imgUrl
+            }
             fetch(`/vehicles/${car.id}`, {
                method: "PATCH",
                headers:{"Content-Type": "application/json"},
-               body: JSON.stringify(values)
+               body: JSON.stringify(updatedCarJson)
             })
             .then(r=>r.json())    
             .then((car)=>onEditCar(car))
@@ -40,7 +47,7 @@ function EditVehicleForm({car, onEditCar, setIsEditOn}){
         <input name="model"onChange={formik.handleChange} value={formik.values.model} />
         <input name="year"onChange={formik.handleChange} value={formik.values.year} />
         <input name="price" onChange={formik.handleChange} value={formik.values.price}/>
-        <input name="img_url" onChange={formik.handleChange} value={formik.values.img_url}/>
+        <input name="imgUrl" onChange={formik.handleChange} value={formik.values.img_url}/>
         <button type="submit">Edit Vehicle</button>
     </form>
     

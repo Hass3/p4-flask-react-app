@@ -19,7 +19,7 @@ function OwnerForm({onAddOwner, setIsFormOn}){
       },
       validationSchema: formSchema,
       onSubmit: (values)=>{
-         const form_json={
+         const formJson={
             'name': values.name,
             'date_of_birth': values.dateOfBirth,
             'address': values.address
@@ -27,7 +27,7 @@ function OwnerForm({onAddOwner, setIsFormOn}){
          fetch("/owners", {
             method: "POST",
             headers:{"Content-Type": "application/json"},
-            body: JSON.stringify(form_json)
+            body: JSON.stringify(formJson)
          })
          .then(r=>r.json())
          .then(owner=> onAddOwner(owner)) 

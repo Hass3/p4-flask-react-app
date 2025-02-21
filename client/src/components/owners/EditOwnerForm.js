@@ -8,7 +8,7 @@ function EditOwnerForm({owner, onEditOwner,setIsEditOn}){
 
     const formSchema = yup.object().shape({
           name:yup.string().required("Must Fill In Name").max(15),
-          date_of_birth:yup.string().required("Must Enter Date Of Birth"),
+          dateOfBirth:yup.string().required("Must Enter Date Of Birth"),
           address: yup.string().required("Must Enter In Address")
        })
 
@@ -16,15 +16,21 @@ function EditOwnerForm({owner, onEditOwner,setIsEditOn}){
        const formik = useFormik({
           initialValues: {
              name:`${name}`,
-             date_of_birth:`${date_of_birth}`,
+             dateOfBirth:`${date_of_birth}`,
              address:`${address}`
           },
           validationSchema: formSchema,
           onSubmit: (values)=>{
+            const updatedOwnerJson={
+               'name': values.name,
+               'date_of_birth': values.dateOfBirth,
+               'address': values.address
+            }
+
              fetch(`/owners/${id}`, {
                 method: "PATCH",
                 headers:{"Content-Type": "application/json"},
-                body: JSON.stringify(values)
+                body: JSON.stringify(updatedOwnerJson)
              })
              .then(r=>r.json())
              .then(o=> onEditOwner(o)) 
@@ -38,7 +44,7 @@ function EditOwnerForm({owner, onEditOwner,setIsEditOn}){
         <form onSubmit={formik.handleSubmit}>
         <input name="name" onChange={formik.handleChange}  value={formik.values.name} placeholder="enter name"/>
         <br/>
-        <input name="date_of_birth" onChange={formik.handleChange}  value={formik.values.date_of_birth} placeholder="enter date of birth" />
+        <input name="dateOfBirth" onChange={formik.handleChange}  value={formik.values.dateOfBirth} placeholder="enter date of birth" />
         <br/>
         <input name="address" onChange={formik.handleChange}  value={formik.values.address} placeholder="enter address"/> 
         <button type='submit'>Edit Owner</button>

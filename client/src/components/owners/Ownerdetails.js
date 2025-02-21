@@ -37,12 +37,12 @@ function OwnerDetails(){
         <h4 style={{justifySelf: 'center'}}>Click to see more info of {owner.name}'s owned vehicles</h4>
       <div className="car-container">
         {owner.vehicles.map((c)=> 
-        <div id={c.id} className="car-card-details">
+        <div key={c.id} id={c.id} className="car-card-details">
           <h3 className="v-model">{c.make} {c.model}</h3>
-          <Link to={`/vehicles/${c.id}`}>
-          <img className="v-img" src={c.img_url} alt={c.model}/>
+          <Link key={c.id}  to={`/vehicles/${c.id}`}>
+          <img key={c.id} className="v-img" src={c.img_url} alt={c.model}/>
           </Link>
-          <p>year: {c.year} Purchased For: {c.price} </p>
+          <p >year: {c.year} Purchased For: {c.price} </p>
         </div>
         
       )}

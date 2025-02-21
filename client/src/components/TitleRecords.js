@@ -22,7 +22,7 @@ function TitleRecords(){
         <h1 className='title-title'>Title Records</h1>
         
         {titles.map((t)=>
-        <div className='title-card'>
+        <div key={t.id} className='title-card'>
             <h2>Owner: {t.owner.name}</h2>
 
             <h2>Vehicle:</h2>

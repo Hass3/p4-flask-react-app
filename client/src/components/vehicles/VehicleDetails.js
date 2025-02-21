@@ -49,7 +49,7 @@ function VehicleDetails(){
     <h4>Click to see more info of owners of this vehicle</h4>
     
     {car.owners.map((o)=>
-      <Link to={`/owners/${o.id}`}>
+      <Link key={o.id} to={`/owners/${o.id}`}>
       <li key={o.id}>name:{o.name}|| DOB:{o.date_of_birth}|| address:{o.address}</li>
       </Link>
     )}
