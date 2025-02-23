@@ -28,13 +28,7 @@ function NavBar(){
     </NavLink>
    </nav>
 
-
-
   )
-
-
-
-
 }
 
 

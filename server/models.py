@@ -32,6 +32,7 @@ class Vehicle(db.Model, SerializerMixin):
     titles = db.relationship("Title", back_populates = "vehicle", cascade='all, delete-orphan')
     owners = db.relationship( "Owner", secondary = "titles" , back_populates = "vehicles", overlaps = 'titles')
     serialize_only= ('id','make', 'model', 'year', 'price', 'img_url')
+
     serialize_rules  = ('-titles.vehicle', '-owners.vehicles')
 class Title(db.Model,SerializerMixin):
     __tablename__ = 'titles'

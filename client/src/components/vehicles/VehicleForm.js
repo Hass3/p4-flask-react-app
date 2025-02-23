@@ -2,7 +2,7 @@
 import {useFormik} from 'formik'
 import * as yup from "yup";
 
-function VehicleForm({onAddCar}){
+function VehicleForm({onAddCar,setIsFormOn}){
 
    const formSchema =  yup.object().shape({
       make: yup.string().required("Must Enter Vehicle Make").max(15),
@@ -38,6 +38,7 @@ function VehicleForm({onAddCar}){
          })
          .then(r=>r.json())
          .then(car=> onAddCar(car))
+         setIsFormOn(on => !on)
       }
    })
 

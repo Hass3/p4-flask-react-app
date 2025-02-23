@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import NavBar from "../NavBar";
 import { Link } from "react-router-dom";
 import TransferForm from "./TranseferForm";
+import { setIn } from "formik";
 
 function VehicleDetails(){
     const [car, setCar] = useState(null)
@@ -10,6 +11,8 @@ function VehicleDetails(){
     const params = useParams()
     const vehicleId = params.id
     const [owner, setOwner] = useState({})
+
+    
     useEffect(()=>{
         fetch(`/vehicles/${vehicleId}`)
         .then(r=>r.json())
@@ -47,6 +50,7 @@ function VehicleDetails(){
       <p>No regestired owners</p>}
     <h3>Vehicle Owner Records:</h3>
     <h4>Click to see more info of owners of this vehicle</h4>
+    
     
     {car.owners.map((o)=>
       <Link key={o.id} to={`/owners/${o.id}`}>

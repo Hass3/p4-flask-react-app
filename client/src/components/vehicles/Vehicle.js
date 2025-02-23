@@ -42,7 +42,7 @@ const [isFormOn, setIsFormOn]= useState(false)
     <NavBar/>
     <div className="card-container">
     <button className={isFormOn ? "v-back-btn" : "v-form-btn"} onClick={()=>setIsFormOn(on => !on)}>{!isFormOn ?"Register Vehicle" : "Back"}</button>
-        {!isFormOn ? null  : <VehicleForm onAddCar={addCar}/> } 
+        {!isFormOn ? null  : <VehicleForm setIsFormOn={setIsFormOn} onAddCar={addCar}/> } 
         <>
         <h1 className="v-h1">Registerd Vehicles</h1>
        {cars.map((car)=>
